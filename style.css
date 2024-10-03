@@ -133,16 +133,4 @@ input[type="button"]:hover {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease; /* Scale effect */
 }
-/* Loading Indicator Styles */
-.loading {
-    display: none; /* Initially hidden */
-    font-size: 1.2rem;
-    color: #fff;
-    margin-top: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.showdata:hover {
-    transform: scale(1.02); /* Slight increase on hover */
-}
 
