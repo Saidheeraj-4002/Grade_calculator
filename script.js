@@ -66,28 +66,4 @@ function calculateSGPA() {
     document.getElementById("showdata").innerText = `Your SGPA is: ${sgpa.toFixed(2)}`;
 }
 
-function calculateCGPA() {
-    // Show loading indicator
-    const loading = document.getElementById('loading');
-    loading.style.display = 'block';
-
-    // Simulate a calculation delay (for example, 2 seconds)
-    setTimeout(() => {
-        // Your CGPA calculation logic here
-        const subject1 = parseFloat(document.getElementById('subject1').value) || 0;
-        const subject2 = parseFloat(document.getElementById('subject2').value) || 0;
-        // Add more subjects as needed
-
-        // Example calculation (adjust as necessary)
-        const totalSubjects = 2; // Change this based on the number of subjects
-        const cgpa = (subject1 + subject2) / totalSubjects;
-
-        // Display result
-        const result = document.getElementById('result');
-        result.innerText = `Your CGPA is: ${cgpa.toFixed(2)}`;
-
-        // Hide loading indicator
-        loading.style.display = 'none';
-    }, 2000); // Adjust the delay as needed
-}
 
