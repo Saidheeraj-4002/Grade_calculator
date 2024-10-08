@@ -2,8 +2,7 @@ function generateFields() {
     const numSubjects = document.getElementById("numSubjects").value;
     const container = document.getElementById("subjectContainer");
     container.innerHTML = ''; // Clear the container before generating
-
-    if (numSubjects > 0) {
+ if (numSubjects > 0) {
         for (let i = 0; i < numSubjects; i++) {
             // Creating input fields for subject grades and credits
             const fieldset = document.createElement('fieldset');
