@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>CGPA Result</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>CGPA Result</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sgpa_input.html">SGPA Calculator</a></li>
-                <li><a href="cgpa_input.html">CGPA Calculator</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-      <h2 id="cgpaDisplay"></h2>
-    </main>
-    <script src="script.js"></script>
+    <h1>CGPA Result</h1>
+    <p id="cgpaResult"></p>
+    
+    <script>
+        // Retrieve the CGPA from sessionStorage
+        const cgpa = sessionStorage.getItem('cgpa');
+
+        // Check if CGPA is retrieved successfully
+        if (cgpa) {
+            document.getElementById("cgpaResult").innerText = `Your CGPA is: ${parseFloat(cgpa).toFixed(2)}`;
+        } else {
+            document.getElementById("cgpaResult").innerText = 'CGPA not calculated. Please go back and calculate again.';
+        }
+    </script>
 </body>
 </html>
-
