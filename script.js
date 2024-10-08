@@ -11,7 +11,7 @@ function submitNumSubjects() {
 // Function to calculate SGPA
 function calculateSGPA() {
     const urlParams = new URLSearchParams(window.location.search);
-    const numSubjects = urlParams.get('numSubjects');
+    const numSubjects = parseInt(urlParams.get('numSubjects'));
     let totalCredits = 0;
     let weightedGradePoints = 0;
 
@@ -24,10 +24,7 @@ function calculateSGPA() {
     }
 
     const sgpa = weightedGradePoints / totalCredits;
-    document.getElementById("sgpaResult").innerText = `Your SGPA is: ${sgpa.toFixed(2)}`;
-    setTimeout(() => {
-        window.location.href = `sgpa_result.html?sgpa=${sgpa.toFixed(2)}`;
-    }, 3000);
+    window.location.href = `sgpa_result.html?sgpa=${sgpa.toFixed(2)}`;
 }
 
 // Function to handle CGPA input submission
@@ -43,7 +40,7 @@ function submitNumSemesters() {
 // Function to calculate CGPA
 function calculateCGPA() {
     const urlParams = new URLSearchParams(window.location.search);
-    const numSemesters = urlParams.get('numSemesters');
+    const numSemesters = parseInt(urlParams.get('numSemesters'));
     let totalCredits = 0;
     let weightedGradePoints = 0;
 
@@ -56,10 +53,7 @@ function calculateCGPA() {
     }
 
     const cgpa = weightedGradePoints / totalCredits;
-    document.getElementById("cgpaResult").innerText = `Your CGPA is: ${cgpa.toFixed(2)}`;
-    setTimeout(() => {
-        window.location.href = `cgpa_result.html?cgpa=${cgpa.toFixed(2)}`;
-    }, 3000);
+    window.location.href = `cgpa_result.html?cgpa=${cgpa.toFixed(2)}`;
 }
 
 // This function will handle displaying the SGPA result
@@ -75,3 +69,39 @@ function displayCGPA() {
     const cgpa = urlParams.get('cgpa');
     document.getElementById("cgpaDisplay").innerText = `Your calculated CGPA is: ${cgpa}`;
 }
+
+// Dynamically create SGPA input fields based on number of subjects
+document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const numSubjects = urlParams.get('numSubjects');
+    const subjectContainer = document.getElementById("subjectContainer");
+
+    if (numSubjects) {
+        for (let i = 0; i < numSubjects; i++) {
+            const subjectDiv = document.createElement("div");
+            subjectDiv.innerHTML = `
+                <label for="credits${i}">Credits for Subject ${i + 1}:</label>
+                <input type="number" id="credits${i}" min="0" />
+                <label for="gradePoints${i}">Grade Points for Subject ${i + 1}:</label>
+                <input type="number" id="gradePoints${i}" min="0" max="10" />
+            `;
+            subjectContainer.appendChild(subjectDiv);
+        }
+    }
+
+    const semesterContainer = document.getElementById("semesterContainer");
+    const numSemesters = urlParams.get('numSemesters');
+
+    if (numSemesters) {
+        for (let i = 0; i < numSemesters; i++) {
+            const semesterDiv = document.createElement("div");
+            semesterDiv.innerHTML = `
+                <label for="semCredits${i}">Credits for Semester ${i + 1}:</label>
+                <input type="number" id="semCredits${i}" min="0" />
+                <label for="semGradePoints${i}">Grade Points for Semester ${i + 1}:</label>
+                <input type="number" id="semGradePoints${i}" min="0" max="10" />
+            `;
+            semesterContainer.appendChild(semesterDiv);
+        }
+    }
+});
