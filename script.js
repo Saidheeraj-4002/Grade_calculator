@@ -15,7 +15,6 @@ function generateFields(type) {
 
     inputFieldsDiv.innerHTML += `<button onclick="calculate(${num}, '${type}')">Calculate ${type === 'sgpa' ? 'SGPA' : 'CGPA'}</button>`;
 }
-
 function calculate(num, type) {
     let totalCredits = 0;
     let totalGradePoints = 0;
