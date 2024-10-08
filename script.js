@@ -28,7 +28,7 @@ function calculate(num, type) {
         totalGradePoints += (gradePoints * credits);
     }
 
-    const result = totalGradePoints / totalCredits;
+ const result = totalGradePoints / totalCredits;
     if (type === 'sgpa') {
         displayResult(result, 'sgpaResult', 'sgpa_result.html');
     } else {
