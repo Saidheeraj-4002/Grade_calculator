@@ -58,7 +58,6 @@ function calculateSGPA() {
         document.getElementById("showdata").style.display = 'block';
     }
 }
-
 function saveToHistory(sgpa) {
     let history = localStorage.getItem("gradeHistory");
     history = history ? JSON.parse(history) : [];
