@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CGPA Input</title>
+</head>
+<body>
+    <header>
+        <h1>CGPA Calculator</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sgpa_input.html">SGPA Calculator</a></li>
+                <li><a href="grade_conversion.html">Grading System</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Enter Number of Semesters for CGPA Calculation</h2>
+        <div class="container">
+            <label for="numSemesters">Number of Semesters:</label>
+            <input type="number" id="numSemesters" min="1" />
+            <button onclick="submitNumSemesters()">Next</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
