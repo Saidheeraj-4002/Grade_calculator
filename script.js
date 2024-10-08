@@ -4,15 +4,15 @@ function calculateSGPA() {
     let totalCredits = 0;
 
     for (let i = 1; i <= numSubjects; i++) {
-        let gradePoints = parseFloat(document.getElementById(`subject${i}`).value);
+        let marks = parseFloat(document.getElementById(`subject${i}`).value);
         let credits = parseFloat(document.getElementById(`credit${i}`).value);
 
-        // Check if inputs are valid
-        if (isNaN(gradePoints) || isNaN(credits) || gradePoints < 0 || gradePoints > 10 || credits <= 0) {
-            alert(`Please enter valid grade points (0-10) and credits for Subject ${i}`);
+        if (isNaN(marks) || isNaN(credits) || credits <= 0) {
+            alert(`Please enter valid marks and credits for Subject ${i}`);
             return;
         }
 
+        let gradePoints = getGradePoint(marks);
         totalGradePoints += gradePoints * credits;
         totalCredits += credits;
     }
@@ -23,7 +23,15 @@ function calculateSGPA() {
     }
 
     let sgpa = totalGradePoints / totalCredits;
-
-    // Display SGPA result
     document.getElementById("showdata").innerText = `Your SGPA is: ${sgpa.toFixed(2)}`;
+}
+
+function getGradePoint(marks) {
+    if (marks >= 90) return 10;   // A+
+    if (marks >= 80) return 9;    // A
+    if (marks >= 70) return 8;    // B
+    if (marks >= 60) return 7;    // C
+    if (marks >= 50) return 6;    // D
+    if (marks >= 40) return 5;    // E
+    return 0;                     // Fail (F)
 }
