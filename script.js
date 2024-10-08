@@ -1,5 +1,26 @@
+// Function to generate input fields based on the number of subjects
+function generateFields() {
+    const numSubjects = document.getElementById("numSubjects").value;
+    const subjectContainer = document.getElementById("subjectContainer");
+    subjectContainer.innerHTML = ""; // Clear existing fields
+
+    for (let i = 1; i <= numSubjects; i++) {
+        const fieldHTML = `
+            <div class="input-field">
+                <label for="subject${i}">Marks for Subject ${i} (Out of 100)</label>
+                <input type="number" id="subject${i}" class="form-control" min="0" max="100" required>
+                <label for="credit${i}">Credits for Subject ${i}</label>
+                <input type="number" id="credit${i}" class="form-control" min="1" max="10" required>
+            </div>`;
+        subjectContainer.insertAdjacentHTML("beforeend", fieldHTML);
+    }
+
+    document.getElementById("calculateButton").style.display = "block"; // Show calculate button
+}
+
+// Function to calculate SGPA
 function calculateSGPA() {
-    let numSubjects = document.getElementById("numSubjects").value;
+    const numSubjects = document.getElementById("numSubjects").value;
     let totalGradePoints = 0;
     let totalCredits = 0;
 
@@ -26,6 +47,7 @@ function calculateSGPA() {
     document.getElementById("showdata").innerText = `Your SGPA is: ${sgpa.toFixed(2)}`;
 }
 
+// Function to get grade point based on marks
 function getGradePoint(marks) {
     if (marks >= 90) return 10;   // A+
     if (marks >= 80) return 9;    // A
