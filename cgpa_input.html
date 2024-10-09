@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGPA Input</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CGPA Calculator</title>
 </head>
 <body>
     <h1>CGPA Calculator</h1>
-    <label for="numSemesters">Enter number of semesters:</label>
-    <input type="number" id="numSemesters" min="1" max="10" required>
+
+    <!-- CGPA Input Section -->
+    <label for="numSemesters">Enter the number of semesters:</label>
+    <input type="number" id="numSemesters" min="1" required>
     <button onclick="generateCGPAFields()">Generate Fields</button>
 
+    <!-- CGPA Fields -->
     <form id="cgpaForm">
-        <div id="semesterContainer"></div>
-        <button type="button" id="calculateCGPAButton" onclick="calculateCGPA()" style="display:none;">Calculate CGPA</button>
+        <div id="cgpaContainer"></div>
+        <button type="button" id="calculateCGPAButton" style="display:none;" onclick="calculateCGPA()">Calculate CGPA</button>
     </form>
+
     <script src="script.js"></script>
 </body>
 </html>
+
 
