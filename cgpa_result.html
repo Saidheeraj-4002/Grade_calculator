@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGPA Result</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>CGPA Result</h1>
-    <p id="cgpaResult"></p>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cgpa = sessionStorage.getItem('cgpa');
+    const percentage = sessionStorage.getItem('cgpaPercentage');
     
-    <script>
-        // Retrieve the CGPA from sessionStorage
-        const cgpa = sessionStorage.getItem('cgpa');
-
-        // Check if CGPA is retrieved successfully
-        if (cgpa) {
-            document.getElementById("cgpaResult").innerText = `Your CGPA is: ${parseFloat(cgpa).toFixed(2)}`;
-        } else {
-            document.getElementById("cgpaResult").innerText = 'CGPA not calculated. Please go back and calculate again.';
-        }
-    </script>
-</body>
-</html>
+    document.getElementById('cgpaResult').innerText = `Your CGPA is: ${cgpa}`;
+    document.getElementById('percentageResult').innerText = `Percentage Equivalent: ${percentage}%`;
+});
+</script>
+<p id="cgpaResult"></p>
+<p id="percentageResult"></p>
