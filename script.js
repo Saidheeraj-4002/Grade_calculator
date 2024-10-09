@@ -1,3 +1,4 @@
+
 // Function to generate fields for SGPA calculation (Subjects)
 function generateFields() {
     const numSubjects = document.getElementById("numSubjects").value;
@@ -45,6 +46,29 @@ function calculateSGPA() {
     // Store the result in sessionStorage and redirect to the result page
     sessionStorage.setItem('sgpa', sgpa);
     window.location.href = 'sgpa_result.html';
+}
+
+// Function to generate fields for CGPA calculation based on the number of semesters
+function generateCGPAFields() {
+    const numSemesters = document.getElementById("numSemesters").value;
+    const container = document.getElementById("cgpaContainer");
+    container.innerHTML = ''; // Clear previous fields
+
+    if (numSemesters > 0) {
+        for (let i = 1; i <= numSemesters; i++) {
+            container.innerHTML += `
+                <div>
+                    <label for="sgpa${i}">SGPA for Semester ${i}:</label>
+                    <input type="number" id="sgpa${i}" min="0" max="10" step="0.01" required>
+                    <label for="credits${i}">Credits for Semester ${i}:</label>
+                    <input type="number" id="credits${i}" min="1" required>
+                </div>
+            `;
+        }
+        document.getElementById("calculateCGPAButton").style.display = 'block';
+    } else {
+        alert("Please enter a valid number of semesters");
+    }
 }
 
 // Function to calculate CGPA for multiple semesters
