@@ -1,11 +1,24 @@
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const cgpa = sessionStorage.getItem('cgpa');
-    const percentage = sessionStorage.getItem('cgpaPercentage');
-    
-    document.getElementById('cgpaResult').innerText = `Your CGPA is: ${cgpa}`;
-    document.getElementById('percentageResult').innerText = `Percentage Equivalent: ${percentage}%`;
-});
-</script>
-<p id="cgpaResult"></p>
-<p id="percentageResult"></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CGPA Result</title>
+</head>
+<body>
+    <h1>CGPA Result</h1>
+    <p id="cgpaResult"></p>
+    <p id="percentageResult"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cgpa = sessionStorage.getItem('cgpa');
+            const percentage = sessionStorage.getItem('cgpaPercentage');
+            
+            document.getElementById('cgpaResult').innerText = `Your CGPA is: ${cgpa}`;
+            document.getElementById('percentageResult').innerText = `Percentage Equivalent: ${percentage}%`;
+        });
+    </script>
+</body>
+</html>
