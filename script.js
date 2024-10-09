@@ -39,4 +39,28 @@ function calculateSGPA() {
     sessionStorage.setItem('sgpa', sgpa);
     window.location.href = 'sgpa_result.html';
 }
+// Function to calculate CGPA for multiple semesters
+function calculateCGPA() {
+    const numSemesters = document.getElementById("numSemesters").value;
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    for (let i = 1; i <= numSemesters; i++) {
+        const sgpa = parseFloat(document.getElementById(`sgpa${i}`).value);
+        const credits = parseFloat(document.getElementById(`credits${i}`).value);
+
+        totalGradePoints += sgpa * credits;
+        totalCredits += credits;
+    }
+
+    const cgpa = totalGradePoints / totalCredits;
+
+    // Calculate percentage equivalent of CGPA
+    const percentage = (cgpa - 0.75) * 10;
+
+    // Store the result in sessionStorage and redirect to the result page
+    sessionStorage.setItem('cgpa', cgpa.toFixed(2));
+    sessionStorage.setItem('percentage', percentage.toFixed(2));
+    window.location.href = 'cgpa_result.html';
+}
 
