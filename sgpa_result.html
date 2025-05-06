@@ -10,7 +10,7 @@
     <h1>SGPA Result</h1>
     <p id="result"></p>
     
-    <script>
+ <script>
         // Retrieve the SGPA from sessionStorage and display it
         const sgpa = sessionStorage.getItem('sgpa');
         document.getElementById("result").innerText = `Your SGPA is: ${sgpa ? sgpa : 'Not Calculated'}`;
