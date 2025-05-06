@@ -93,7 +93,7 @@ function calculateCGPA() {
     const cgpa = (totalGradePoints / totalCredits).toFixed(2);
 
     // Calculate percentage equivalent of CGPA (Example: CGPA * 9.5)
-    const percentage = (cgpa * 9.5).toFixed(2);
+ const percentage = (cgpa * 9.5).toFixed(2);
 
     // Store the result in sessionStorage and redirect to the result page
     sessionStorage.setItem('cgpa', cgpa);
